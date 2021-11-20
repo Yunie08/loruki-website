@@ -1,0 +1,13 @@
+{
+  "name": "loruki-website",
+  "version": "1.0.0",
+  "description": "Loruki website (tutorial by Brad Traversy)",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed/"
+  },
+  "author": "Ambre Gorias",
+  "license": "ISC",
+  "browserslist": "last 4 versions"
+}
