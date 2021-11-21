@@ -1,0 +1,19 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+// Utils
+@import "./utils/variables";
+@import "./utils/mixins";
+
+// base
+@import "./base/base";
+@import "./base/typography";
+// components
+@import "./components/card";
+// layout
+@import "./layout/container";
+@import "./layout/header";
+// pages
+@import "./pages/index";
+
+

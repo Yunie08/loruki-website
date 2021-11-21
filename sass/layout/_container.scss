@@ -1,0 +1,7 @@
+// Set max width to 1100px
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: auto;         // Remove space due to h1 margin
+    padding: 0 4rem;
+}
