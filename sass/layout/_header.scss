@@ -1,16 +1,16 @@
 .navbar {
-    background-color: $primary-color;
-    color: #fff;
+    background-color: $color-primary;
+    color: $color-light;
     height: 70px;
     .container {
         @include flex ($justify: space-between);
     }
     a {
-        color: #fff;
+        color: $color-light;
         padding: 1rem;                  // padding plutôt sur <a> que sur <li>
         margin: 0 0.5rem;
         &:hover {
-            border-bottom: 2px #fff solid;
+            border-bottom: 2px $color-light solid;
         }
     }
 

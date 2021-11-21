@@ -1,0 +1,60 @@
+.showcase {
+    height: 40rem;
+    @include background-txt;
+    position: relative;             // this way we can position items with absolute within it
+    h1 {
+        font-size: 4rem;
+    }
+    p {
+        margin: 2rem 0;
+    }
+    .container {
+        @include grid($grid-col: 55% 45%, $gap: 3rem);
+        overflow: visible;      // because we want the card to go below the grid
+    }
+
+    &__form {
+        position: relative;     // because we want to add a top property (so the card is shifted down a bit)
+        top: 6rem;
+        height: 35rem;
+        width: 40rem;
+        padding: 4rem;
+        justify-self: flex-end;
+        z-index: 100;           // make sure it is always on top (for animations & before/after layout)
+        
+        // class used to change placement of inputs
+        // if rules directly in "input" selector, doesn't work correctly
+        &__control {
+            margin: 3rem 0;
+        }
+
+         // because we do not want to modify the button yet
+        input[type='text'],
+        input[type='email'] {
+            border: 0;
+            border-bottom: 1px solid $color-sublines;
+            width: 100%;
+            padding: 0.3rem;  // more room in each input
+            font-size: 1.6rem;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    // set background tilted line
+    /*  Note : this erroneous code can be interesting for a ribbon wrapping 3D effect
+        &::before,
+        ::after                                                                     */
+    &::before,
+    &::after {
+        content: "";            // no content because we just want to set background
+        position: absolute;     // within container .showcase  set to position relative
+        height : 10rem;
+        bottom: -7rem;          // we want the line to start blow the current showcase div
+        right: 0;
+        left: 0;
+        background-color: $color-light;
+        transform: skewY(-3deg);
+    }
+}

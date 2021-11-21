@@ -1,2 +1,17 @@
 // Color palette
-$primary-color : #047aed;
+$color-primary : #047aed;
+$color-text-dark : #333;
+$color-light: #fff;
+$color-sublines: #b4becd;
+
+// basic grid template
+$grid-base : 1fr 1fr;
+$grid-gap-base : 2rem;
+
+// button mods
+$btn-mods: (
+    outline: (
+        bg: transparent,
+        border: 1px $color-light solid
+    )
+);

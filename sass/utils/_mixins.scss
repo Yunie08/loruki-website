@@ -4,3 +4,51 @@
     align-items: $align;
     height: 100%;                // of container
 }
+
+// By default 2 equal columns
+@mixin grid ($grid-col: $grid-base, $grid-line: 0, $gap: $grid-gap-base) {
+    display: grid;
+    grid-template-columns: $grid-col;
+    @if ($grid-line != 0) {
+        grid-template-rows: $grid-line;
+    }
+    gap: $gap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+@mixin background-txt ($colour: $color-primary) {
+    background-color: $colour;
+    @if (lightness($colour) < 50%) {
+        color: $color-light;
+    }
+    @else {
+        color: $color-text-dark;
+    }
+}
+
+// Generate different button styles declared in _variables.css ==> $btn-mods
+@mixin btn-mods($map) {
+    @each $mod , $rules in $map {
+        &--#{$mod} {
+            @include background-txt(map-get($map: (map-get($map: $btn-mods, $key: $mod)), $key: bg));
+            border : map-get($map: (map-get($map: $btn-mods, $key: $mod)), $key: border);
+        }
+    }
+}
+
+// base button
+@mixin btn {
+    display: inline-block;
+    padding: 1rem 3rem;             // top-bottom   left-right
+    cursor: pointer;
+    @include background-txt;
+    border: none;
+    border-radius: 5px;
+    @include btn-mods($btn-mods);   // generate all modes
+
+    &:hover {
+        transform: scale(0.98);
+    }
+}

@@ -3,6 +3,7 @@
 
 // Utils
 @import "./utils/variables";
+@import "./utils/functions";
 @import "./utils/mixins";
 
 // base
@@ -10,10 +11,13 @@
 @import "./base/typography";
 // components
 @import "./components/card";
+@import "./components/buttons";
 // layout
 @import "./layout/container";
 @import "./layout/header";
 // pages
 @import "./pages/index";
+@import "./pages/docs";
+@import "./pages/features";
 
 
