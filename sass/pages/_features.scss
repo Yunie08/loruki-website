@@ -1,0 +1,53 @@
+.features__head {
+    @include background-txt;
+    @include padding-y(m);
+    .container {
+        @include grid;
+    }
+    h1 {
+        @include text-size(xl);
+    }
+    p {
+        @include text-size(lead);
+    }
+    img {
+        width: 200px; // note: by default 100%
+        justify-self: flex-end;
+    }
+}
+
+.features__sub-head {
+    @include background-txt($color-light);
+    @include padding-y(m);
+    .container {
+        @include grid;
+    }
+    h1 {
+        @include text-size(m);
+    }
+    img {
+        width: 300px; // note: by default 100%
+        justify-self: flex-end;
+    }
+}
+
+.features__main {
+    @include margin-y(s);
+    .container {
+        @include grid($grid-col: repeat(3,1fr));
+        padding: 3rem;
+        > *:first-child {
+            grid-column: 1 / span 3;
+        }
+        > *:nth-child(2) {
+            grid-column: 1 / span 2;
+        }
+    }
+    .card {
+       @include flex;
+        > i { // target first logo of each card
+            margin-right: 2rem;
+        }
+    }
+    
+}
