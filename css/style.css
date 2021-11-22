@@ -222,7 +222,8 @@ img {
   position: relative;
   top: 6rem;
   height: 35rem;
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
   padding: 4rem;
   justify-self: flex-end;
   z-index: 100;

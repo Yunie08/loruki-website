@@ -4,7 +4,7 @@
     @include background-txt;
     position: relative;             // this way we can position items with absolute within it
     @include tablet-only {
-        height: auto;
+    height: auto;
     }
     h1 {
         font-size: 4rem;
@@ -27,7 +27,8 @@
         position: relative;  // because we want to add a top property (so the card is shifted down a bit)
         top: 6rem;
         height: 35rem;
-        width: 40rem;
+        width: 100%; // avoid overlapping with showcase__text
+        max-width: 40rem; // instead of max: 40rem
         padding: 4rem;
         justify-self: flex-end;
         z-index: 100;  // make sure it is always on top (for animations & before/after layout)
