@@ -1,21 +1,31 @@
 .navbar {
     background-color: $color-primary;
-    color: $color-light;
+    color: $color-white;
     height: 70px;
+    @include mobile-only {
+        height: 110px;
+    }
     .container {
         @include flex ($justify: space-between);
-    }
-    a {
-        color: $color-light;
-        padding: 1rem;                  // padding plutôt sur <a> que sur <li>
-        margin: 0 0.5rem;
-        &:hover {
-            border-bottom: 2px $color-light solid;
+
+        @include mobile-only {
+            flex-direction: column;
         }
     }
-
+    a {
+        color: $color-white;
+        padding: 1rem; // padding plutôt sur <a> que sur <li>
+        margin: 0 0.5rem;
+        &:hover {
+            border-bottom: 2px $color-white solid;
+        }
+    }
     ul {
         display: flex;
-    }
+        @include mobile-only {
+            padding: 10px;
+            background-color: rgba(0,0,0,0.1);
 
+        }
+    }
 }

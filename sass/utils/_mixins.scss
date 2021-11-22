@@ -16,25 +16,20 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+
+    @include tablet-only {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
 }
 
 @mixin background-txt ($colour: $color-primary) {
     background-color: $colour;
     @if (lightness($colour) < 50%) {
-        color: $color-light;
+        color: $color-white;
     }
     @else {
         color: $color-text-dark;
-    }
-}
-
-// Generate different button styles declared in _variables.css ==> $btn-mods
-@mixin btn-mods($map) {
-    @each $mod , $rules in $map {
-        &--#{$mod} {
-            @include background-txt(map-get($map: (map-get($map: $btn-mods, $key: $mod)), $key: bg));
-            border : map-get($map: (map-get($map: $btn-mods, $key: $mod)), $key: border);
-        }
     }
 }
 
@@ -46,9 +41,65 @@
     @include background-txt;
     border: none;
     border-radius: 5px;
-    @include btn-mods($btn-mods);   // generate all modes
-
+    &--outline {
+        background: transparent;
+        border: 1px $color-white solid;
+    }
+    &--primary {
+        @include background-txt($color-primary);
+    }
+    &--secondary {
+        @include background-txt($color-secondary);
+    }
+    &--dark {
+        @include background-txt($color-dark);
+    }
+    &--light {
+        @include background-txt($color-light);
+    }
     &:hover {
         transform: scale(0.98);
+    }
+}
+
+@mixin text-center {
+    text-align: center;
+}
+
+/* margin top-bottom */
+@mixin margin-y($size) {
+    margin: map-get($map: $margin, $key: $size) 0;
+}
+
+/* margin all around */
+@mixin margin($size) {
+    margin: map-get($map: $margin, $key: $size) map-get($map: $margin, $key: $size);
+}
+
+/* margin top-bottom */
+@mixin padding-y($size) {
+    padding: map-get($map: $padding, $key: $size) 0;
+}
+
+/* margin all around */
+@mixin padding($size) {
+    padding: map-get($map: $padding, $key: $size) map-get($map: $padding, $key: $size);
+}
+
+@mixin text-size($size) {
+    font-size: map-get($map: $text-sizes, $key: $size);
+}
+
+/* Media queries */
+/* Mobile */
+@mixin mobile-only {
+    @media screen and (max-width: map-get($breakpoints, mobile)) {
+        @content;
+    }
+}
+/* Tablets and under */
+@mixin tablet-only {
+    @media screen and (max-width: map-get($breakpoints, tablet)) {
+        @content;
     }
 }

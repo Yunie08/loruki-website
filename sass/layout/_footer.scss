@@ -1,0 +1,11 @@
+.footer {
+    @include background-txt($color-dark);
+    @include padding-y(xl);
+    .container {
+        @include grid($grid-col: repeat(3, 1fr));
+    }
+    a {
+        color: white;
+        margin: 0 1rem;
+    }
+}

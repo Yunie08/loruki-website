@@ -1,7 +1,11 @@
+/* Showcase */
 .showcase {
     height: 40rem;
     @include background-txt;
     position: relative;             // this way we can position items with absolute within it
+    @include tablet-only {
+        height: auto;
+    }
     h1 {
         font-size: 4rem;
     }
@@ -12,16 +16,28 @@
         @include grid($grid-col: 55% 45%, $gap: 3rem);
         overflow: visible;      // because we want the card to go below the grid
     }
+    &__text {
+        @include tablet-only {
+            text-align: center;
+            margin-top: 4rem;
+        }
+    }
 
     &__form {
-        position: relative;     // because we want to add a top property (so the card is shifted down a bit)
+        position: relative;  // because we want to add a top property (so the card is shifted down a bit)
         top: 6rem;
         height: 35rem;
         width: 40rem;
         padding: 4rem;
         justify-self: flex-end;
-        z-index: 100;           // make sure it is always on top (for animations & before/after layout)
-        
+        z-index: 100;  // make sure it is always on top (for animations & before/after layout)
+        @include tablet-only {
+            justify-self: center;
+            margin: auto;
+        }
+        @include mobile-only {
+            width: 30rem;
+        }
         // class used to change placement of inputs
         // if rules directly in "input" selector, doesn't work correctly
         &__control {
@@ -40,9 +56,10 @@
                 outline: none;
             }
         }
+        
     }
 
-    // set background tilted line
+/* Set tilted background */
     /*  Note : this erroneous code can be interesting for a ribbon wrapping 3D effect
         &::before,
         ::after                                                                     */
@@ -54,7 +71,94 @@
         bottom: -7rem;          // we want the line to start blow the current showcase div
         right: 0;
         left: 0;
-        background-color: $color-light;
+        background-color: $color-white;
         transform: skewY(-3deg);
+    }
+}
+
+/* Stats */
+.stats {
+    padding-top: 10rem;
+    &__heading {
+        @include margin-y(xs);
+        @include text-center;
+        max-width: 500px;
+        margin: auto;
+    }
+    &__grid {
+        @include grid($grid-col: repeat(3, 1fr));
+        @include text-center;
+        @include margin(l);
+
+        h3 {
+            font-size: 3.5rem;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    }
+}
+
+/* Cli */
+.cli {
+    .container {
+        @include grid($grid-col: repeat(3, 1fr), $grid-line: repeat(2, 1fr));
+        
+        /* target 1st element and span across 2 columns and two rows */
+        > *:first-child {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+
+            @include tablet-only {
+                grid-column: 1;
+                grid-row: 1;
+            }
+        }
+
+        
+    }
+}
+
+/* Cloud */
+.cloud {
+    @include background-txt;
+    @include margin-y(s);
+    @include padding-y(s);
+    @include text-center;
+
+    .container {
+        @include grid($grid-col: 4fr 3fr);
+    }
+    h2 {
+        @include text-size(l);
+    }
+    p {
+        @include text-size(lead);
+    }
+}
+
+/* Languages */
+.languages {
+    @include text-center;
+    h2 {
+        @include text-size(m);
+        @include margin-y(s);
+    }
+    .container {
+        @include flex;
+        flex-wrap: wrap; // logo can go to another line if not enough space
+    }
+    .card {
+        margin: 1.8rem 1rem 4rem;
+        transition: transform 0.2s ease-in; // smooth hover translation 
+        &:hover {
+            transform: translateY(-15px); // translate vertically
+        }
+        h4 {
+            @include text-size(lead);
+            margin-bottom: 1rem;
+        }
     }
 }
