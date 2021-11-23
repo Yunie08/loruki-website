@@ -17,9 +17,11 @@
         overflow: visible;      // because we want the card to go below the grid
     }
     &__text {
+        animation: slideInFromLeft 1s ease-in;
         @include tablet-only {
             text-align: center;
             margin-top: 4rem;
+            animation: slideInFromTop 1s ease-in;
         }
     }
 
@@ -32,9 +34,11 @@
         padding: 4rem;
         justify-self: flex-end;
         z-index: 100;  // make sure it is always on top (for animations & before/after layout)
+        animation: slideInFromRight 1s ease-in;
         @include tablet-only {
             justify-self: center;
             margin: auto;
+            animation: slideInFromBottom 1s ease-in;
         }
         @include mobile-only {
             width: 30rem;
@@ -80,6 +84,7 @@
 /* Stats */
 .stats {
     padding-top: 10rem;
+    animation: slideInFromBottom 1s ease-in;
     &__heading {
         @include margin-y(xs);
         @include text-center;
@@ -117,8 +122,6 @@
                 grid-row: 1;
             }
         }
-
-        
     }
 }
 

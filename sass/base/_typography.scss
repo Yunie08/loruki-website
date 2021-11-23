@@ -29,4 +29,9 @@ img {
     width : 100% // keep image within container
 }
 
+code, pre {
+    @include background-txt($color-text-dark);
+    padding: 1rem;
+}
+
 

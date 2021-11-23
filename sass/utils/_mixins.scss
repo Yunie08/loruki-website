@@ -19,13 +19,12 @@
 
     @include tablet-only {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
     }
 }
 
 @mixin background-txt ($colour: $color-primary) {
     background-color: $colour;
-    @if (lightness($colour) < 50%) {
+    @if (lightness($colour) < 70%) {
         color: $color-white;
     }
     @else {
@@ -45,17 +44,10 @@
         background: transparent;
         border: 1px $color-white solid;
     }
-    &--primary {
-        @include background-txt($color-primary);
-    }
-    &--secondary {
-        @include background-txt($color-secondary);
-    }
-    &--dark {
-        @include background-txt($color-dark);
-    }
-    &--light {
-        @include background-txt($color-light);
+    @each $state, $bg in $background-palette {
+        &--#{$state} {
+            @include background-txt($bg);
+        }
     }
     &:hover {
         transform: scale(0.98);
@@ -90,6 +82,35 @@
     font-size: map-get($map: $text-sizes, $key: $size);
 }
 
+
+@mixin card {
+    @include background-txt ($color-white);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(black, 0.2);
+    padding: 2rem;
+    margin: 1rem;
+    @each $state, $bg in $background-palette {
+        &--#{$state} {
+            @include background-txt($bg);
+        }
+    }
+}
+
+@mixin alert {
+    @include background-txt($color-light);
+    padding: 1rem 2rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    i {
+        margin-right: 1rem;
+    }
+    @each $state, $bg in $alert-states {
+        &--#{$state} {
+            @include background-txt($bg);
+        }
+    }
+}
+
 /* Media queries */
 /* Mobile */
 @mixin mobile-only {
@@ -97,6 +118,7 @@
         @content;
     }
 }
+
 /* Tablets and under */
 @mixin tablet-only {
     @media screen and (max-width: map-get($breakpoints, tablet)) {

@@ -6,6 +6,8 @@ $color-light: #f4f4f4;
 $color-text-dark : #333;
 $color-white: #fff;
 $color-sublines: #b4becd;
+$color-success : #5cb85c;
+$color-error : #d9534f;
 
 // basic grid template
 $grid-base : 1fr 1fr;
@@ -35,6 +37,20 @@ $text-sizes : (
     m: 3.2rem,
     l: 4.8rem,
     xl: 6.4rem
+);
+
+/* Background colors */
+$background-palette: (
+    primary: $color-primary,
+    secondary: $color-secondary,
+    dark: $color-dark,
+    light: $color-light
+);
+
+/* Alert states */
+$alert-states : (
+    success: $color-success, 
+    error : $color-error,
 );
 
 /* Media query breakpoints */

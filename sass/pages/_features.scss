@@ -1,3 +1,9 @@
+.features {
+    @include tablet-only {
+        text-align: center;
+    }  
+}
+
 .features__head {
     @include background-txt;
     @include padding-y(m);
@@ -13,6 +19,9 @@
     img {
         width: 200px; // note: by default 100%
         justify-self: flex-end;
+        @include tablet-only {
+            justify-self: center;
+        }
     }
 }
 
@@ -28,6 +37,9 @@
     img {
         width: 300px; // note: by default 100%
         justify-self: flex-end;
+        @include tablet-only {
+            justify-self: center;
+        }
     }
 }
 
@@ -38,9 +50,15 @@
         padding: 3rem;
         > *:first-child {
             grid-column: 1 / span 3;
+            @include tablet-only {
+                grid-column: 1;
+            }
         }
         > *:nth-child(2) {
             grid-column: 1 / span 2;
+            @include tablet-only {
+                grid-column: 1;
+            }
         }
     }
     .card {

@@ -1,7 +1,3 @@
 .card {
-    @include background-txt ($color-white);
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(black, 0.2);
-    padding: 2rem;
-    margin: 1rem;
+    @include card;
 }

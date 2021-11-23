@@ -1,0 +1,55 @@
+.docs {
+    @include tablet-only {
+        text-align: center;
+    }  
+}
+
+.docs__head {
+    @include background-txt;
+    @include padding-y(m);
+    .container {
+        @include grid;
+    }
+    h1 {
+        @include text-size(xl);
+    }
+    p {
+        @include text-size(lead);
+    }
+    img {
+        width: 200px; // note: by default 100%
+        justify-self: flex-end;
+        @include tablet-only {
+            justify-self: center;
+        }
+    }
+}
+
+.docs__main {
+    @include margin-y(l);
+    .container {
+        @include grid($grid-col: 1fr 2fr);
+        align-items: flex-start;
+    }
+    .card {
+        &--light {
+            @include padding(m);
+            h3 {
+                @include margin-y(s);
+            }
+        }
+
+    }
+    h3 {
+        margin: 2rem 0;
+    }
+    nav li {
+        font-size: 1.7rem;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-bottom: 1px #ccc solid;
+    }
+    a:hover {
+        font-weight: bold;
+    }
+}
