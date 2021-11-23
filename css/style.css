@@ -103,6 +103,12 @@ code, pre {
   padding: 1rem;
 }
 
+/* hidden class for Netlify form */
+.hidden {
+  visibility: hidden;
+  height: 0;
+}
+
 .card {
   background-color: #fff;
   color: #333;
