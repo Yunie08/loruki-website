@@ -1,3 +1,9 @@
+.index {
+    @include tablet-only {
+        text-align: center;
+    }  
+}
+
 /* Showcase */
 .showcase {
     height: 40rem;
